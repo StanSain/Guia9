@@ -18,12 +18,12 @@ public class RecursosHumanos {
         Date fecha = new Date();
         fecha = pq.getNacimiento();
         System.out.println("fecha de nacimiento " + sd.format(fecha));
+        Persona pq1 = new Persona();
+        pq1 = sp.crear();
+        int edad = 18;
+        boolean mayor = false;
+        mayor = sp.menorQue(pq1, edad);
+        System.out.println(pq1.getNombre() + " es mayor de " + edad + " " + mayor);
     }
-    /*Método menorQue recibe como parámetro una Persona y una edad.
-Retorna true si la persona es menor que la edad consultada o false
-en caso contrario*/
-    public boolean menorQue(Persona p , int e){
-        boolean menor = true;
-        return menor;
-    }
+
 }
