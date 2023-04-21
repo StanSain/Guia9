@@ -12,8 +12,11 @@ public class ElAhorcado {
 
     public static void main(String[] args) {
         ServicioAhorcado sa = new ServicioAhorcado();
-        sa.crearJuego();
-        sa.longitudMuestra();
-    }
+        Ahorcado a = new Ahorcado();
+        a = sa.crearJuego();
+        sa.longitudMuestra(a);
+        sa.encontradas(a);
+        
 
+    }
 }
