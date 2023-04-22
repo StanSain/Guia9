@@ -6,6 +6,10 @@ import static jdk.nashorn.internal.objects.NativeString.substring;
 
 public class ServicioAhorcado {
 
+    public ServicioAhorcado() {
+    }
+
+
     /*Metodo crearJuego(): le pide la palabra al usuario y cantidad de
 jugadas máxima. Con la palabra del usuario, pone la longitud de la
 palabra, como la longitud del vector. Después ingresa la palabra en el
@@ -49,29 +53,45 @@ que no esté, se le restará uno a sus oportunidades.*/
         boolean encuentra = false;
         int contEncont = 0;
         int maxJug = z.getJugadas();
+        int faltaEncontrar = 0;
 //        System.out.println(maxJug);
-        String letra;
-
-        while (maxJug > 0) {
-            System.out.println("ingrese letra");
-            letra = leer.next();
-            //--------------------------------------------------
-            for (int i = 0; i < z.getPalBuscar().length; i++) {
-                if (letra.equals(z.getPalBuscar()[i])) {
-                    contEncont++;
-                    encuentra = true;
-                }
-            }
-            //---------------------------------------------------
-            if (encuentra == true) {
-                maxJug = 0;
-            } else {
-                maxJug--;
-                System.out.println("quedan " + maxJug + " intentos");
-            }
-            System.out.println(letra + " esta en la palabra " + encuentra);
-            System.out.println(letra + " esta en la palabra  " + contEncont + " veces");
+        String letraBuscada;
+        String letraEncontrada = "";
+        System.out.println("ingrese letraBuscada");
+        letraBuscada = leer.next();
+        if ((letraBuscada.equals(letraEncontrada)) && !(letraEncontrada == "")) {
+            System.out.println("ingrese otra letra");
+            letraBuscada = leer.next();
         }
-
+        //--------------------------------------------------
+        for (int i = 0; i < z.getPalBuscar().length; i++) {
+            if (letraBuscada.equals(z.getPalBuscar()[i])) {
+                contEncont++;
+                encuentra = true;
+                letraEncontrada = letraBuscada;
+            }
+        }
+        //---------------------------------------------------
+        if (encuentra == true) {
+            maxJug--;
+            z.setJugadas(maxJug);
+            maxJug = 0;
+        } else {
+            maxJug--;
+            z.setJugadas(maxJug);
+        }
+        System.out.println(letraBuscada + " esta en la palabra " + encuentra);
+        System.out.println(letraBuscada + " esta en la palabra  " + contEncont + " veces");
+        faltaEncontrar = z.getPalBuscar().length - contEncont;
+        System.out.println("falta encontrar " + faltaEncontrar);
     }
+
+    /*Método intentos(): para mostrar cuántas oportunidades le queda al
+jugador*/
+    public void intentos(Ahorcado z) {
+        int intentosRestantes;
+        intentosRestantes = z.getJugadas();
+        System.out.println("quedan " + intentosRestantes);
+    }
+
 }

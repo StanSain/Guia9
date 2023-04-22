@@ -18,13 +18,13 @@ public class prueba {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ServicioAhorcado sa = new ServicioAhorcado();
-        Ahorcado a = new Ahorcado();
-        a = sa.crearJuego();
-        System.out.println();
-        for (int i = 0; i < 4; i++) {
-        System.out.println(a.getPalBuscar()[i]);    
-        }
+boolean b = false;
+int x =5;
+int y = 5;
+if ((x==y)&&(x>0)){
+    b = true ;
+    System.out.println(b);
+}
         
     }
 

@@ -16,7 +16,7 @@ public class ElAhorcado {
         a = sa.crearJuego();
         sa.longitudMuestra(a);
         sa.encontradas(a);
-        
+        sa.intentos(a);
 
     }
 }
